@@ -440,21 +440,6 @@ flowchart LR
     UC05 -.->|include| UC09
 ```
 
-## Bộ này bạn nên giữ làm “xương sống” của dự án
-
-Quan trọng nhất là **không sửa mã lung tung** về sau:
-
-**B1:** Context + Problem
-**B2:** Stakeholder
-**B3:** BG01–BG10
-**B4:** Scope
-**B5:** BR01–BR13
-**B6:** BP01–BP10
-**B7:** FR01–FR23
-**B8:** BRU01–BRU13 + EX01–EX07
-**B9:** Entity + ERD
-**B10:** NFR01–NFR10
-**B11:** UC01–UC15
 
 b12 truy xuat nguon goc yeu cau
 Đúng. **B12 – Truy xuất nguồn gốc yêu cầu (Requirement Traceability)** là bước để chứng minh rằng **mỗi yêu cầu đều xuất phát từ đâu và được triển khai xuống đâu**.
@@ -483,41 +468,7 @@ Với dự án CAB, để sau này làm Test Case không bị quá tải, mình 
 | BG09 | BR12             | BP09       | FR23                   | BRU10, BRU12, BRU13       | UC12             |
 | BG10 | BR13             | BP10       | —                      | —                         | —                |
 
-### Ý nghĩa
 
-Ví dụ:
-
-**BG01 – Tự động tìm và điều phối tài xế**
-
-↓
-
-**BR01 – Tự động tìm tài xế**
-
-↓
-
-**BP03 – Tìm và điều phối tài xế**
-
-↓
-
-**FR05 – Tìm tài xế phù hợp**
-**FR06 – Gửi yêu cầu đến tài xế**
-
-↓
-
-**BRU01 – Tài xế phải sẵn sàng**
-**BRU02 – Ưu tiên tài xế phù hợp**
-
-↓
-
-**UC03 – Tìm và phân công tài xế**
-
-Sau này từ **UC03** mới thiết kế Test Case.
-
----
-
-# 2. Sơ đồ Traceability bằng Mermaid
-
-Bạn có thể copy đoạn này vào Mermaid:
 
 ```mermaid
 flowchart LR
@@ -706,31 +657,4 @@ flowchart LR
     FR21 --> UC13
     FR22 --> UC15
     FR23 --> UC12
-```
-
----
-
-## 3. Tại sao B12 rất quan trọng cho Test Case?
-
-B12 giúp mình **không phải nghĩ Test Case từ đầu**.
-
-Ví dụ chỉ cần nhìn:
-
-> **BG01 → BR01 → BP03 → FR05 → UC03**
-
-thì biết ngay phải kiểm thử chức năng:
-
-**“Hệ thống có tìm được tài xế phù hợp hay không?”**
-
-Sau đó mới sinh các Test Case:
-
-* Tài xế đang sẵn sàng → tìm được.
-* Tài xế không sẵn sàng → không được chọn.
-* Có nhiều tài xế → chọn theo tiêu chí đã xác nhận.
-* Tài xế từ chối → tìm tài xế khác.
-* Không còn tài xế → thông báo khách hàng.
-
-Như vậy **B12 chính là cây cầu nối từ yêu cầu của khách hàng → chức năng hệ thống → Use Case → Test Case**.
-
-Và với dự án của bạn, mình sẽ **không tạo Test Case cho toàn bộ 23 FR một cách máy móc**; sẽ gom theo các **Use Case/luồng nghiệp vụ chính** để một người vẫn làm được.
 
