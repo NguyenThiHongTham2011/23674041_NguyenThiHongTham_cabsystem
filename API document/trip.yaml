@@ -1,0 +1,28 @@
+openapi: 3.0.3
+
+info:
+  title: CAB System - Trip API
+  description: API theo dõi chuyến đi
+  version: 1.0.0
+
+paths:
+
+  /trips/{tripId}/status:
+    get:
+      summary: FR10 - Theo dõi trạng thái chuyến
+      description: |
+        FR10 - Theo dõi trạng thái chuyến
+
+        AC08 - Khách hàng có thể theo dõi trạng thái
+        chuyến trong quá trình thực hiện.
+      parameters:
+        - name: tripId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Trả về trạng thái chuyến
+        '404':
+          description: Không tìm thấy chuyến
