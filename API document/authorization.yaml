@@ -1,0 +1,49 @@
+openapi: 3.0.3
+
+info:
+  title: CAB System - Authorization API
+  description: API phân quyền người dùng
+  version: 1.0.0
+
+paths:
+
+  /authorization/roles:
+    get:
+      summary: FR23 - Phân quyền
+      description: |
+        FR23 - Phân quyền
+
+        AC17 - Người dùng không có quyền không thể
+        thực hiện chức năng quản trị không được phép.
+      responses:
+        '200':
+          description: Trả về danh sách quyền
+
+  /authorization/check:
+    post:
+      summary: Kiểm tra quyền người dùng
+      description: |
+        FR23 - Phân quyền
+
+        AC17 - Người dùng không có quyền không thể
+        thực hiện chức năng quản trị không được phép.
+
+        AC18 - Các thao tác quản trị quan trọng được
+        lưu vết để phục vụ kiểm tra.
+      responses:
+        '200':
+          description: Người dùng có quyền thực hiện
+        '403':
+          description: Người dùng không có quyền
+
+  /authorization/audit-logs:
+    get:
+      summary: AC18 - Xem nhật ký thao tác quản trị
+      description: |
+        AC18 - Các thao tác quản trị quan trọng được
+        lưu vết để phục vụ kiểm tra.
+      responses:
+        '200':
+          description: Trả về nhật ký thao tác
+        '403':
+          description: Không có quyền xem nhật ký
