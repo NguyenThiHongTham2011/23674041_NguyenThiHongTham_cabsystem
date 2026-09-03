@@ -1,0 +1,32 @@
+openapi: 3.0.3
+
+info:
+  title: CAB System - Notification API
+  description: API gửi thông báo
+  version: 1.0.0
+
+paths:
+
+  /notifications:
+    post:
+      summary: FR16 - Gửi thông báo
+      description: |
+        FR16 - Gửi thông báo
+
+        AC12 - Hệ thống gửi thông báo đến đúng khách hàng
+        hoặc tài xế khi xảy ra các sự kiện quan trọng.
+      responses:
+        '201':
+          description: Gửi thông báo thành công
+
+  /notifications/no-driver:
+    post:
+      summary: FR09 - Thông báo không tìm được tài xế
+      description: |
+        FR09 - Thông báo không tìm được tài xế
+
+        AC05 - Khi không tìm được tài xế,
+        hệ thống phải thông báo rõ cho khách hàng.
+      responses:
+        '200':
+          description: Đã gửi thông báo
