@@ -1,0 +1,46 @@
+openapi: 3.0.3
+
+info:
+  title: CAB System - History and Rating API
+  description: API quản lý lịch sử chuyến và đánh giá tài xế
+  version: 1.0.0
+
+paths:
+
+  /customers/{customerId}/trip-history:
+    get:
+      summary: FR17 - Xem lịch sử chuyến
+      description: |
+        FR17 - Xem lịch sử chuyến
+
+        AC13 - Khách hàng có thể xem lịch sử chuyến
+        và đánh giá tài xế sau khi chuyến hoàn thành.
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Trả về lịch sử chuyến
+
+  /trips/{tripId}/rating:
+    post:
+      summary: FR18 - Đánh giá tài xế
+      description: |
+        FR18 - Đánh giá tài xế
+
+        AC13 - Khách hàng có thể xem lịch sử chuyến
+        và đánh giá tài xế sau khi chuyến hoàn thành.
+      parameters:
+        - name: tripId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Đánh giá tài xế thành công
+        '400':
+          description: Không thể đánh giá chuyến chưa hoàn thành
