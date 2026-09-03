@@ -1,0 +1,84 @@
+openapi: 3.0.3
+
+info:
+  title: CAB System - Operation API
+  description: API quản lý vận hành hệ thống
+  version: 1.0.0
+
+paths:
+
+  /operation/customers:
+    get:
+      summary: FR19 - Quản lý khách hàng
+      description: |
+        FR19 - Quản lý vận hành
+
+        AC14 - Nhân viên vận hành có thể quản lý
+        khách hàng, tài xế, phương tiện và chuyến đi
+        theo quyền được cấp.
+      responses:
+        '200':
+          description: Trả về danh sách khách hàng
+
+  /operation/drivers:
+    get:
+      summary: FR19 - Quản lý tài xế
+      description: |
+        FR19 - Quản lý vận hành
+
+        AC14 - Nhân viên vận hành có thể quản lý
+        khách hàng, tài xế, phương tiện và chuyến đi
+        theo quyền được cấp.
+      responses:
+        '200':
+          description: Trả về danh sách tài xế
+
+  /operation/vehicles:
+    get:
+      summary: FR19 - Quản lý phương tiện
+      description: |
+        FR19 - Quản lý vận hành
+
+        AC14 - Nhân viên vận hành có thể quản lý
+        khách hàng, tài xế, phương tiện và chuyến đi
+        theo quyền được cấp.
+      responses:
+        '200':
+          description: Trả về danh sách phương tiện
+
+  /operation/trips:
+    get:
+      summary: FR19 - Quản lý chuyến đi
+      description: |
+        FR19 - Quản lý vận hành
+
+        AC14 - Nhân viên vận hành có thể quản lý
+        khách hàng, tài xế, phương tiện và chuyến đi
+        theo quyền được cấp.
+      responses:
+        '200':
+          description: Trả về danh sách chuyến đi
+
+  /operation/transactions:
+    get:
+      summary: FR20 - Tra cứu giao dịch
+      description: |
+        FR20 - Tra cứu giao dịch
+
+        AC15 - Nhân viên vận hành có thể tra cứu
+        giao dịch và hỗ trợ xử lý chuyến bị lỗi.
+      responses:
+        '200':
+          description: Tra cứu giao dịch thành công
+
+  /operation/incidents:
+    post:
+      summary: FR21 - Xử lý sự cố
+      description: |
+        FR21 - Xử lý sự cố
+
+        AC15 - Nhân viên vận hành có thể tra cứu
+        giao dịch và hỗ trợ xử lý chuyến bị lỗi.
+      responses:
+        '200':
+          description: Xử lý sự cố thành công
