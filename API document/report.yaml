@@ -1,0 +1,22 @@
+openapi: 3.0.3
+
+info:
+  title: CAB System - Report API
+  description: API báo cáo hoạt động
+  version: 1.0.0
+
+paths:
+
+  /reports/operations:
+    get:
+      summary: FR22 - Báo cáo hoạt động
+      description: |
+        FR22 - Báo cáo hoạt động
+
+        AC16 - Ban lãnh đạo có thể xem báo cáo về số chuyến,
+        doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế.
+      responses:
+        '200':
+          description: Trả về báo cáo hoạt động
+        '403':
+          description: Người dùng không có quyền xem báo cáo
