@@ -1,0 +1,122 @@
+openapi: 3.0.3
+
+info:
+  title: CAB System - Booking API
+  description: API quản lý yêu cầu đặt xe
+  version: 1.0.0
+
+paths:
+
+  /bookings:
+    post:
+      summary: FR04 - Tạo yêu cầu đặt xe
+      description: |
+        FR04 - Tạo yêu cầu đặt xe
+
+        AC02 - Khách hàng có thể nhập điểm đón,
+        điểm đến, chọn loại xe và gửi yêu cầu đặt xe.
+      responses:
+        '201':
+          description: Tạo yêu cầu đặt xe thành công
+        '400':
+          description: Thông tin đặt xe không hợp lệ
+
+  /bookings/{bookingId}/find-driver:
+    post:
+      summary: FR05 - Tìm tài xế phù hợp
+      description: |
+        FR05 - Tìm tài xế phù hợp
+
+        AC03 - Hệ thống tự động tìm tài xế phù hợp
+        dựa trên trạng thái sẵn sàng, vị trí và tiêu chí
+        đã được doanh nghiệp xác nhận.
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Đã tìm được tài xế phù hợp
+        '404':
+          description: Không tìm được tài xế phù hợp
+
+  /bookings/{bookingId}/request-driver:
+    post:
+      summary: FR06 - Gửi yêu cầu đến tài xế
+      description: |
+        FR06 - Gửi yêu cầu đến tài xế
+
+        AC03 - Hệ thống tìm tài xế phù hợp và gửi
+        yêu cầu chuyến đến tài xế.
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Đã gửi yêu cầu đến tài xế
+
+  /bookings/{bookingId}/driver-response:
+    post:
+      summary: FR07 - Nhận / từ chối chuyến
+      description: |
+        FR07 - Nhận / từ chối chuyến
+
+        AC06 - Tài xế có thể nhận chuyến và hệ thống
+        không tiếp tục phân công chuyến đó cho tài xế khác.
+
+        AC04 - Khi tài xế từ chối hoặc không phản hồi,
+        hệ thống tiếp tục tìm tài xế khác mà khách hàng
+        không cần tạo lại yêu cầu.
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Đã xử lý phản hồi của tài xế
+
+  /bookings/{bookingId}/alternative-driver:
+    post:
+      summary: FR08 - Tìm tài xế thay thế
+      description: |
+        FR08 - Tìm tài xế thay thế
+
+        AC04 - Khi tài xế từ chối hoặc không phản hồi,
+        hệ thống tiếp tục tìm tài xế khác mà khách hàng
+        không cần tạo lại yêu cầu.
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Đã tìm tài xế thay thế
+        '404':
+          description: Không tìm được tài xế thay thế
+
+  /bookings/{bookingId}/no-driver:
+    post:
+      summary: FR09 - Thông báo không tìm được tài xế
+      description: |
+        FR09 - Thông báo không tìm được tài xế
+
+        AC05 - Khi không tìm được tài xế,
+        hệ thống phải thông báo rõ cho khách hàng.
+      parameters:
+        - name: bookingId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Đã thông báo không tìm được tài xế
