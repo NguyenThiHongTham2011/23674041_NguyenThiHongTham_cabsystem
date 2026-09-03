@@ -1,0 +1,49 @@
+openapi: 3.0.3
+
+info:
+  title: CAB - Authentication API
+  version: 1.0.0
+
+paths:
+
+  /auth/register:
+    post:
+      summary: FR01 - Đăng ký tài khoản
+      description: |
+        FR01 - Đăng ký tài khoản
+
+        AC01 - Khách hàng có thể đăng ký,
+        đăng nhập và cập nhật thông tin tài khoản thành công.
+      responses:
+        '201':
+          description: Đăng ký tài khoản thành công
+
+  /auth/login:
+    post:
+      summary: FR02 - Đăng nhập
+      description: |
+        FR02 - Đăng nhập
+
+        AC01 - Khách hàng có thể đăng ký,
+        đăng nhập và cập nhật thông tin tài khoản thành công.
+      responses:
+        '200':
+          description: Đăng nhập thành công
+
+  /customers/{customerId}:
+    put:
+      summary: FR03 - Quản lý thông tin cá nhân
+      description: |
+        FR03 - Quản lý thông tin cá nhân
+
+        AC01 - Khách hàng có thể đăng ký,
+        đăng nhập và cập nhật thông tin tài khoản thành công.
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Cập nhật thông tin thành công
