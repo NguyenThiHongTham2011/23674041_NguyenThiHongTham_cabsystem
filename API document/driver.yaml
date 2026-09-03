@@ -1,0 +1,67 @@
+openapi: 3.0.3
+
+info:
+  title: CAB System - Driver API
+  description: API quản lý tài xế và trạng thái tài xế
+  version: 1.0.0
+
+paths:
+
+  /drivers/{driverId}/booking-response:
+    post:
+      summary: FR07 - Nhận / từ chối chuyến
+      description: |
+        FR07 - Nhận / từ chối chuyến
+
+        AC06 - Tài xế có thể nhận chuyến và hệ thống
+        không tiếp tục phân công chuyến đó cho tài xế khác.
+
+        AC04 - Khi tài xế từ chối hoặc không phản hồi,
+        hệ thống tiếp tục tìm tài xế khác.
+      parameters:
+        - name: driverId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Đã xử lý nhận hoặc từ chối chuyến
+
+  /drivers/{driverId}/trip-status:
+    put:
+      summary: FR11 - Cập nhật trạng thái chuyến
+      description: |
+        FR11 - Cập nhật trạng thái chuyến
+
+        AC07 - Tài xế có thể cập nhật đúng các trạng thái
+        của chuyến theo trình tự hợp lệ.
+      parameters:
+        - name: driverId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Cập nhật trạng thái chuyến thành công
+        '400':
+          description: Trạng thái chuyến không hợp lệ
+
+  /drivers/{driverId}/location:
+    put:
+      summary: FR12 - Cập nhật vị trí tài xế
+      description: |
+        FR12 - Cập nhật vị trí tài xế
+
+        AC07 - Tài xế có thể cập nhật đúng các trạng thái
+        của chuyến theo trình tự hợp lệ.
+      parameters:
+        - name: driverId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Cập nhật vị trí thành công
