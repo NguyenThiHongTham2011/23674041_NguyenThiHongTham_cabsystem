@@ -1,0 +1,6 @@
+Test Case ID,Scenario ID,Test Scenario,API,Method,Preconditions,Test Steps,Test Data/Input,Expected Output,Expected HTTP Status,Type,Actual Result,Status
+AUTHZ-TC01,AUTHZ-S01,Xem danh sách role,/authorization/roles,GET,Người dùng đã đăng nhập,"1. Gửi request lấy danh sách role 2. Kiểm tra response","Request hợp lệ","Trả về danh sách role",200,Positive,,
+AUTHZ-TC02,AUTHZ-S02,Kiểm tra quyền được phép,/authorization/check,POST,Người dùng có quyền,"1. Gửi request kiểm tra quyền 2. Kiểm tra response","Quyền hợp lệ","Hệ thống xác nhận được phép",200,Positive,,
+AUTHZ-TC03,AUTHZ-S02,Kiểm tra quyền không được phép,/authorization/check,POST,Người dùng không có quyền,"1. Gửi request kiểm tra quyền 2. Kiểm tra response","Quyền không hợp lệ","Hệ thống từ chối truy cập",403,Negative,,
+AUTHZ-TC04,AUTHZ-S03,Xem audit log khi có quyền,/authorization/audit-logs,GET,Người dùng có quyền,"1. Gửi request xem audit log 2. Kiểm tra response","Quyền hợp lệ","Trả về audit log",200,Positive,,
+AUTHZ-TC05,AUTHZ-S03,Xem audit log khi không có quyền,/authorization/audit-logs,GET,Người dùng không có quyền,"1. Gửi request xem audit log 2. Kiểm tra response","Quyền không hợp lệ","Hệ thống từ chối truy cập",403,Negative,,
