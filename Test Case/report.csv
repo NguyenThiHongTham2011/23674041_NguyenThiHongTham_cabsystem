@@ -1,0 +1,3 @@
+Test Case ID,Scenario ID,Test Scenario,API,Method,Preconditions,Test Steps,Test Data/Input,Expected Output,Expected HTTP Status,Type,Actual Result,Status
+REPORT-TC01,REPORT-S01,Xem báo cáo khi có quyền,/reports/operations,GET,Người dùng có quyền xem báo cáo,"1. Gửi request xem báo cáo 2. Kiểm tra response","Quyền hợp lệ","Trả về báo cáo vận hành",200,Positive,,
+REPORT-TC02,REPORT-S01,Xem báo cáo khi không có quyền,/reports/operations,GET,Người dùng không có quyền,"1. Gửi request xem báo cáo 2. Kiểm tra response","Quyền không hợp lệ","Hệ thống từ chối truy cập",403,Negative,,
