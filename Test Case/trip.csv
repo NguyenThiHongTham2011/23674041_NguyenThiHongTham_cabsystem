@@ -1,0 +1,3 @@
+Test Case ID,Scenario ID,Test Scenario,API,Method,Preconditions,Test Steps,Test Data/Input,Expected Output,Expected HTTP Status,Type,Actual Result,Status
+TRIP-TC01,TRIP-S01,Xem trạng thái chuyến đi tồn tại,/trips/{tripId}/status,GET,Trip tồn tại,"1. Gửi request xem trạng thái 2. Kiểm tra response","tripId tồn tại","Trả về trạng thái chuyến đi",200,Positive,,
+TRIP-TC02,TRIP-S01,Xem trạng thái chuyến đi không tồn tại,/trips/{tripId}/status,GET,Trip không tồn tại,"1. Gửi request xem trạng thái 2. Kiểm tra response","tripId không tồn tại","Không tìm thấy chuyến đi",404,Negative,,
