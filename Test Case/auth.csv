@@ -1,0 +1,7 @@
+Test Case ID,Scenario ID,Test Scenario,API,Method,Preconditions,Test Steps,Test Data/Input,Expected Output,Expected HTTP Status,Type,Actual Result,Status
+AUTH-TC01,AUTH-S01,Đăng ký tài khoản hợp lệ,/auth/register,POST,Người dùng chưa có tài khoản,"1. Gửi request đăng ký 2. Kiểm tra response","Thông tin đăng ký hợp lệ","Tạo tài khoản thành công",201,Positive,,
+AUTH-TC02,AUTH-S01,Đăng ký tài khoản không hợp lệ,/auth/register,POST,Người dùng chưa có tài khoản,"1. Gửi request với thông tin đăng ký không hợp lệ 2. Kiểm tra response","Thông tin đăng ký không hợp lệ","Hệ thống từ chối đăng ký",Chưa đặc tả,Negative,,
+AUTH-TC03,AUTH-S02,Đăng nhập hợp lệ,/auth/login,POST,Tài khoản đã tồn tại,"1. Gửi thông tin đăng nhập 2. Kiểm tra response","Thông tin đăng nhập hợp lệ","Đăng nhập thành công",200,Positive,,
+AUTH-TC04,AUTH-S02,Đăng nhập không hợp lệ,/auth/login,POST,Tài khoản đã tồn tại,"1. Gửi thông tin đăng nhập sai 2. Kiểm tra response","Thông tin đăng nhập không hợp lệ","Hệ thống từ chối đăng nhập",Chưa đặc tả,Negative,,
+AUTH-TC05,AUTH-S03,Cập nhật thông tin khách hàng,/customers/{customerId},PUT,Khách hàng đã tồn tại,"1. Gửi request cập nhật 2. Kiểm tra response","Thông tin cá nhân mới hợp lệ","Cập nhật thành công",200,Positive,,
+AUTH-TC06,AUTH-S03,Cập nhật với customerId không hợp lệ,/customers/{customerId},PUT,CustomerId không tồn tại,"1. Gửi request với customerId không hợp lệ 2. Kiểm tra response","customerId không tồn tại","Hệ thống từ chối cập nhật",Chưa đặc tả,Negative,,
