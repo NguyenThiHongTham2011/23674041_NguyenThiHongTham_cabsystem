@@ -1,0 +1,7 @@
+Test Case ID,Scenario ID,Test Scenario,API,Method,Preconditions,Test Steps,Test Data/Input,Expected Output,Expected HTTP Status,Type,Actual Result,Status
+PAY-TC01,PAY-S01,Xem cước chuyến đi hợp lệ,/trips/{tripId}/fare,GET,Trip tồn tại,"1. Gửi request lấy cước 2. Kiểm tra response","tripId hợp lệ","Trả về số tiền cần thanh toán",200,Positive,,
+PAY-TC02,PAY-S01,Xem cước với tripId không tồn tại,/trips/{tripId}/fare,GET,Trip không tồn tại,"1. Gửi request 2. Kiểm tra response","tripId không tồn tại","Không tìm thấy chuyến đi",404,Negative,,
+PAY-TC03, PAY-S02,Thanh toán hợp lệ,/payments,POST,Trip có số tiền cần thanh toán,"1. Gửi request thanh toán 2. Kiểm tra response","Thông tin thanh toán hợp lệ","Thanh toán thành công",200,Positive,,
+PAY-TC04,PAY-S02,Thanh toán với thông tin không hợp lệ,/payments,POST,Trip có số tiền cần thanh toán,"1. Gửi request thanh toán 2. Kiểm tra response","Thông tin thanh toán không hợp lệ","Hệ thống từ chối thanh toán",400,Negative,,
+PAY-TC05,PAY-S03,Retry thanh toán được phép,/payments/{paymentId}/retry,POST,Thanh toán trước đó thất bại và được phép retry,"1. Gửi request retry 2. Kiểm tra response","Payment được phép retry","Hệ thống thực hiện retry",200,Positive,,
+PAY-TC06,PAY-S03,Retry thanh toán không được phép,/payments/{paymentId}/retry,POST,Giao dịch không được phép retry,"1. Gửi request retry 2. Kiểm tra response","Payment không được phép retry","Hệ thống từ chối retry",400,Negative,,
