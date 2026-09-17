@@ -1,0 +1,8 @@
+Test Case ID,Scenario ID,Test Scenario,API,Method,Preconditions,Test Steps,Test Data/Input,Expected Output,Expected HTTP Status,Type,Actual Result,Status
+OP-TC01,OP-S01,Xem danh sách khách hàng,/operation/customers,GET,Nhân viên vận hành có quyền,"1. Gửi request 2. Kiểm tra response","Quyền hợp lệ","Trả về danh sách khách hàng",200,Positive,,
+OP-TC02,OP-S02,Xem danh sách tài xế,/operation/drivers,GET,Nhân viên vận hành có quyền,"1. Gửi request 2. Kiểm tra response","Quyền hợp lệ","Trả về danh sách tài xế",200,Positive,,
+OP-TC03,OP-S03,Xem danh sách phương tiện,/operation/vehicles,GET,Nhân viên vận hành có quyền,"1. Gửi request 2. Kiểm tra response","Quyền hợp lệ","Trả về danh sách phương tiện",200,Positive,,
+OP-TC04,OP-S04,Xem danh sách chuyến đi,/operation/trips,GET,Nhân viên vận hành có quyền,"1. Gửi request 2. Kiểm tra response","Quyền hợp lệ","Trả về danh sách chuyến đi",200,Positive,,
+OP-TC05,OP-S05,Xem giao dịch,/operation/transactions,GET,Nhân viên vận hành có quyền,"1. Gửi request 2. Kiểm tra response","Quyền hợp lệ","Trả về lịch sử giao dịch",200,Positive,,
+OP-TC06,OP-S06,Ghi nhận sự cố chuyến đi,/operation/incidents,POST,Nhân viên vận hành có quyền,"1. Gửi thông tin sự cố 2. Kiểm tra response","Thông tin sự cố hợp lệ","Sự cố được ghi nhận",200,Positive,,
+OP-TC07,OP-S07,Truy cập chức năng vận hành không có quyền,/operation/customers,GET,Người dùng không có quyền,"1. Gửi request 2. Kiểm tra response","Quyền không hợp lệ","Hệ thống từ chối truy cập",Chưa đặc tả,Negative,,
