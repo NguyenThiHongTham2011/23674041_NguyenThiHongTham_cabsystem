@@ -1,0 +1,6 @@
+Test Case ID,Scenario ID,Test Scenario,API,Method,Preconditions,Test Steps,Test Data/Input,Expected Output,Expected HTTP Status,Type,Actual Result,Status
+DRIVER-TC01,DRIVER-S01,Tài xế chấp nhận booking,/drivers/{driverId}/booking-response,POST,Tài xế nhận được yêu cầu,"1. Gửi phản hồi chấp nhận 2. Kiểm tra response","Tài xế chấp nhận","Booking được chấp nhận",200,Positive,,
+DRIVER-TC02,DRIVER-S01,Tài xế từ chối booking,/drivers/{driverId}/booking-response,POST,Tài xế nhận được yêu cầu,"1. Gửi phản hồi từ chối 2. Kiểm tra response","Tài xế từ chối","Booking bị từ chối và hệ thống có thể tìm tài xế khác",200,Negative,,
+DRIVER-TC03,DRIVER-S02,Cập nhật trạng thái chuyến hợp lệ,/drivers/{driverId}/trip-status,PUT,Tài xế đang thực hiện chuyến,"1. Gửi trạng thái hợp lệ 2. Kiểm tra response","Trạng thái chuyến hợp lệ","Trạng thái chuyến được cập nhật",200,Positive,,
+DRIVER-TC04,DRIVER-S02,Cập nhật trạng thái chuyến không hợp lệ,/drivers/{driverId}/trip-status,PUT,Tài xế đang thực hiện chuyến,"1. Gửi trạng thái không hợp lệ 2. Kiểm tra response","Trạng thái chuyến không hợp lệ","Hệ thống từ chối cập nhật",400,Negative,,
+DRIVER-TC05,DRIVER-S03,Cập nhật vị trí tài xế,/drivers/{driverId}/location,PUT,Tài xế đang hoạt động,"1. Gửi vị trí mới 2. Kiểm tra response","Vị trí hợp lệ","Vị trí tài xế được cập nhật",200,Positive,,
