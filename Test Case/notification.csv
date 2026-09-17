@@ -1,0 +1,4 @@
+Test Case ID,Scenario ID,Test Scenario,API,Method,Preconditions,Test Steps,Test Data/Input,Expected Output,Expected HTTP Status,Type,Actual Result,Status
+NOTI-TC01,NOTI-S01,Gửi thông báo hợp lệ,/notifications,POST,Có người nhận thông báo,"1. Gửi request thông báo 2. Kiểm tra response","Thông tin thông báo hợp lệ","Thông báo được tạo thành công",201,Positive,,
+NOTI-TC02,NOTI-S01,Gửi thông báo không hợp lệ,/notifications,POST,Có người nhận thông báo,"1. Gửi request với dữ liệu không hợp lệ 2. Kiểm tra response","Thông tin thông báo không hợp lệ","Hệ thống từ chối thông báo",Chưa đặc tả,Negative,,
+NOTI-TC03,NOTI-S02,Thông báo không có tài xế,/notifications/no-driver,POST,Không tìm được tài xế,"1. Gửi request thông báo 2. Kiểm tra response","Booking không có tài xế","Thông báo được gửi/xử lý",200,Positive,,
