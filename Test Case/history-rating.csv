@@ -1,0 +1,5 @@
+Test Case ID,Scenario ID,Test Scenario,API,Method,Preconditions,Test Steps,Test Data/Input,Expected Output,Expected HTTP Status,Type,Actual Result,Status
+HR-TC01,HR-S01,Xem lịch sử chuyến đi,/customers/{customerId}/trip-history,GET,Khách hàng tồn tại,"1. Gửi request xem lịch sử 2. Kiểm tra response","customerId hợp lệ","Trả về lịch sử chuyến đi",200,Positive,,
+HR-TC02,HR-S01,Xem lịch sử với customerId không hợp lệ,/customers/{customerId}/trip-history,GET,CustomerId không tồn tại,"1. Gửi request 2. Kiểm tra response","customerId không tồn tại","Hệ thống xử lý customerId không hợp lệ",Chưa đặc tả,Negative,,
+HR-TC03,HR-S02,Đánh giá chuyến đi đã hoàn thành,/trips/{tripId}/rating,POST,Chuyến đi đã hoàn thành,"1. Gửi đánh giá 2. Kiểm tra response","Trip đã completed và dữ liệu đánh giá hợp lệ","Đánh giá được tạo thành công",201,Positive,,
+HR-TC04,HR-S02,Đánh giá chuyến đi chưa hoàn thành,/trips/{tripId}/rating,POST,Chuyến đi chưa hoàn thành,"1. Gửi đánh giá 2. Kiểm tra response","Trip chưa completed","Không cho phép đánh giá",400,Negative,,
